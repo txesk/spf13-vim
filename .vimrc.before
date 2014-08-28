@@ -94,6 +94,79 @@
 
 " }
 
+"------------------------------------------------------------------------------
+" Buffer navigation
+"------------------------------------------------------------------------------
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplMapWindowNavTabs = 1
+let g:miniBufExplMapCPageSwitchBufs = 1
+
+" Delete buffer
+nmap <C-w> :bd<CR>
+
+" Delete buffer without saving
+nmap <C-M-w> :bd!<CR>
+
+" Split horizontally
+nmap <M-h> :new<CR>
+
+" Split vertically
+nmap <M-v> :vnew<CR>
+
+" Buffer above
+nmap <M-Up> :wincmd k<CR>
+
+" Buffer below
+nmap <M-Down> :wincmd j<CR>
+
+" Left buffer
+nmap <M-Left> :wincmd h<CR>
+
+" Right buffer
+nmap <M-Right> :wincmd l<CR>
+
+" Previous buffer
+nmap <M-n> :wincmd W<CR>
+nmap <C-PageUp> :bp<CR>
+
+" Next buffer
+nmap <M-n> :wincmd w<CR>
+nmap <C-PageDown> :bn<CR>
+
+" Last selected buffer
+nmap <M-l> :wincmd p<CR>
+
+" Rotate buffers
+nmap <M-r> :wincmd r<CR>
+
+"------------------------------------------------------------------------------
+" Misc key mappings
+"------------------------------------------------------------------------------
+
+" Clear highlighting
+map <BS> :nohl<CR>
+
+" Remove trailing whitespace
+"map <M-w> :%s/\s\+$//g<CR>
+
+" Toggle word wrap
+map <F6> :set wrap!<CR> 
+
+" move the current line up or down
+nmap <C-Down>  :m+<CR>==
+nmap <C-Up> :m-2<CR>==
+imap <C-Down>  <C-O>:m+<CR><C-O>==
+imap <C-Up> <C-O>:m-2<CR><C-O>==
+
+" move the selected block up or down
+vmap <C-Down>  :m'>+<CR>gv=gv
+vmap <C-Up> :m'<-2<CR>gv=gv
+
+" Enabled/disable spell checking
+map <C-S-s> :set spell!<CR>
+
+
 " Use fork before if available {
     if filereadable(expand("~/.vimrc.before.fork"))
         source ~/.vimrc.before.fork
